@@ -1,4 +1,5 @@
 # Discord GNOME Theme
+## Fork for work with betterdiscord with using github pages
 
 A GNOME theme for Discord, following the Adwaita style & GNOME Human Interface Guidelines (with whatever the Discord CSS lets me do).
 
