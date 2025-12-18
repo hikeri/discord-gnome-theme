@@ -1,0 +1,21 @@
+@use "popover";
+@use "util";
+
+.a16aea1526925c2c-option {
+	@include popover.entry;
+
+	color: var(--popover_fg_color);
+	font-size: var(--document-font-size);
+}
+
+.a16aea1526925c2c-popout {
+	@include popover.container;
+}
+
+.a16aea1526925c2c-selectedIcon {
+	@include util.icon("check-plain");
+
+	* {
+		display: none;
+	}
+}

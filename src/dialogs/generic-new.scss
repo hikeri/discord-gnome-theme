@@ -1,0 +1,78 @@
+@use "controls";
+@use "dialog";
+
+[role="dialog"] {
+	--dialog-spacing-x05: calc(var(--dialog-spacing) / 2);
+	--dialog-spacing: 24px;
+}
+
+._8a031a135bfcb9ba-actionBar {
+	box-shadow: none;
+	padding: 0;
+	margin: var(--dialog-spacing);
+	margin-top: 0;
+	gap: var(--spacing-2x);
+
+	button {
+		// Hardcoded (maybe):
+		// https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/src/stylesheet/widgets/_message-dialog.scss#L123
+		border-radius: 12px;
+		// Seen in "Change password" dialog
+		margin: 0;
+
+		flex-grow: 1;
+		height: 44px;
+	}
+}
+
+._8a031a135bfcb9ba-bodyInner {
+	text-align: center;
+	padding: var(--dialog-spacing);
+	padding-top: var(--dialog-spacing-x05);
+}
+
+// ???
+._8a031a135bfcb9ba-bodySpacerBottom,
+._8a031a135bfcb9ba-bodySpacerTop {
+	display: none;
+}
+
+._8a031a135bfcb9ba-container {
+	@include dialog.container;
+
+	border: none;
+	padding: 0;
+
+	&:has(._8a031a135bfcb9ba-headerTrailing > [aria-label="Close"]) {
+		background-color: var(--window_bg_color);
+	}
+}
+
+._8a031a135bfcb9ba-header {
+	padding: 0;
+	padding-top: var(--dialog-spacing);
+
+	& > .dbd2630aec71879b-stack {
+		text-align: center;
+	}
+}
+
+._8a031a135bfcb9ba-headerTrailing {
+	margin: 0;
+
+	position: absolute;
+	top: var(--titlebar-button-spacing);
+	right: var(--titlebar-button-spacing);
+
+	.a22cb0c66246f5d3-button.a22cb0c66246f5d3-icon-only {
+		@include controls.titlebar-button;
+	}
+}
+
+._40128e129e4f87de-scrim {
+	background-color: var(--backdrop);
+
+	&._40128e129e4f87de-lightbox {
+		background-color: rgba(0, 0, 0, 0.75);
+	}
+}

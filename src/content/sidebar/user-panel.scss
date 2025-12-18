@@ -1,0 +1,122 @@
+@use "controls";
+@use "typography";
+
+// vc
+.e131a99484292a19-container {
+	border-bottom: 1px solid var(--secondary_sidebar_border_color);
+	padding: var(--spacing);
+	margin: 0;
+}
+
+._5e434347c823b592-panels {
+	background: var(--bg-overlay-app-frame, var(--background-secondary-alt));
+	border: none;
+	border-top: 1px solid var(--secondary_sidebar_border_color);
+	border-radius: 0;
+
+	bottom: 0;
+	left: var(--custom-guild-list-width);
+	width: calc(
+		var(--custom-guild-sidebar-width) - var(--custom-guild-list-width)
+	);
+	--icon: icon("bullhorn");
+
+	// also vc
+	._5e434347c823b592-activityPanel {
+		background-color: inherit;
+		border-bottom: var(--secondary_sidebar_border_color);
+		border-radius: 0;
+	}
+
+	._37e49614b9f110a9-avatarWrapper {
+		@include controls.button-basic-raised;
+
+		background-color: transparent;
+		border-radius: 0;
+		padding: var(--spacing);
+		margin: 0;
+
+		min-width: 0;
+
+		._37e49614b9f110a9-nameTag {
+			@container (max-width: 260px) {
+				display: none;
+			}
+		}
+	}
+
+	._201d5e8a3c09670a-button {
+		@include controls.icon-button;
+
+		color: inherit;
+	}
+
+	._37e49614b9f110a9-buttons {
+		gap: var(--spacing);
+	}
+
+	._37e49614b9f110a9-container {
+		padding: 0;
+		padding-right: var(--spacing);
+		margin: 0;
+
+		height: unset;
+	}
+}
+
+._37e49614b9f110a9-micButtonParent {
+	@include controls.split-button(
+		$lhs: "._37e49614b9f110a9-micButtonWithMenu",
+		$rhs: "._37e49614b9f110a9-buttonChevron"
+	);
+
+	&._37e49614b9f110a9-hasColorGlow {
+		color: var(--destructive-color);
+
+		// aria-label stays the same, bug ?
+		&:nth-child(1) ._37e49614b9f110a9-micButtonWithMenu {
+			--icon: icon("mic-none");
+		}
+
+		&:nth-child(2) ._37e49614b9f110a9-micButtonWithMenu {
+			--icon: icon("headphones-muted");
+		}
+	}
+
+	._67645e1530f1195d-button {
+		color: inherit;
+	}
+
+	._37e49614b9f110a9-buttonChevron {
+		margin: 0;
+	}
+}
+
+._37e49614b9f110a9-panelTitleContainer {
+	margin: 0;
+
+	& > div {
+		@extend %title-3;
+
+		color: var(--window_fg_color);
+	}
+}
+
+._06d6249a1f2584ac-rtcConnectionStatus ._201d5e8a3c09670a-button {
+	width: unset;
+	height: unset;
+
+	&::before {
+		display: none;
+	}
+
+	& > * {
+		display: initial;
+	}
+}
+
+// There are only 2 buttons and 1 of them has a constant aria-label, the other
+// doesn't
+.e131a99484292a19-voiceButtonsContainer {
+	--icon: icon("sound-wave");
+}

@@ -1,0 +1,100 @@
+@use "controls";
+@use "typography";
+@use "util";
+
+._730694f5672c9601-card {
+	@include controls.card($activatable: false);
+}
+
+.f06a86efca18b62f-category {
+	margin-bottom: 34px;
+}
+
+.dbba9320d9989b05-content {
+	@extend ._23e6b439306f125a-contentColumn;
+}
+
+._23e6b439306f125a-contentColumn {
+	padding: 22px 28px;
+	margin: auto;
+
+	max-width: var(--content-width);
+}
+
+._23e6b439306f125a-contentRegion {
+	border-left: 1px solid var(--sidebar_border_color);
+
+	// for banner
+	flex-direction: column-reverse;
+
+	._44f7f7e71cbca2e4-divider {
+		display: none;
+	}
+}
+
+// for banner
+._23e6b439306f125a-contentTransitionWrap {
+	width: 100%;
+}
+
+// .navigation-sidebar
+._23e6b439306f125a-sidebar {
+	padding: 0;
+
+	.aa8da23faa27393c-header {
+		display: none;
+	}
+
+	.c7e9071ee8df9113-searchBar {
+		margin: 0 var(--menu_margin) 2px;
+	}
+
+	.aa8da23faa27393c-separator {
+		color: var(--window_fg_muted);
+		margin: var(--menu_margin);
+	}
+
+	[role="tab"] {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: "";
+
+			@include util.icon;
+
+			display: inline-block;
+
+			margin-right: 12px;
+		}
+
+		svg {
+			display: none;
+		}
+	}
+}
+
+._23e6b439306f125a-sidebarRegion {
+	flex: unset;
+}
+
+._23e6b439306f125a-sidebarRegionScroller {
+	background-color: var(--sidebar_bg_color);
+}
+
+// Status page
+._33d1236760f7073e-wrapper {
+	._33d1236760f7073e-text {
+		@extend %text-normal;
+
+		color: var(--window_fg_color);
+		margin-top: var(--spacing-2x);
+	}
+
+	._33d1236760f7073e-title {
+		@extend %title-1;
+
+		color: var(--window_fg_color);
+		text-transform: unset;
+	}
+}

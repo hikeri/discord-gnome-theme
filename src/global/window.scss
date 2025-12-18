@@ -1,48 +1,116 @@
-#app-mount {
-	color: var(--window_fg_color);
-	border: var(--app-border-size) solid var(--window_border_color);
-	border-radius: var(--window_radius);
+@use "controls";
 
-	width: calc(100% - var(--app-border-size) * 2);
-	height: calc(100% - var(--app-border-size) * 2);
-}
+.custom-theme-background {
+	body {
+		background: var(--bg-overlay-app-frame);
+	}
 
-.titleBar__421ed {
-	background: none;
-
-	position: fixed;
-	top: var(--titlebar-button-spacing);
-	right: var(--titlebar-button-spacing);
-	height: unset;
-}
-
-// TODO: lmao
-.winButton__421ed {
-	margin-left: calc(
-		max(var(--titlebar-right-button-size), var(--titlebar-button-size)) - var(
-				--titlebar-button-size
-			)
-	);
-
-	width: calc(
-		var(--titlebar-right-button-size) - var(--titlebar-button-spacing)
-	);
-}
-
-.winButtonClose__421ed {
-	--titlebar-right-button-size: var(--titlebar-close-button);
-}
-
-.winButtonMinMax__421ed {
-	--icon: icon("window-maximize");
-	--titlebar-right-button-size: var(--titlebar-maximize-button);
-
-	&:last-child {
-		--icon: icon("window-minimize");
-		--titlebar-right-button-size: var(--titlebar-minimize-button);
+	#app-mount {
+		inset: var(--app-border-size);
+		width: calc(100% - var(--app-border-size) * 2);
+		height: calc(100% - var(--app-border-size) * 2);
 	}
 }
 
-.wordmark__421ed {
+.platform-win {
+	#app-mount {
+		border-radius: var(--window_radius);
+
+		&::before {
+			content: "";
+
+			position: absolute;
+			inset: 1px;
+			z-index: 9999;
+
+			pointer-events: none;
+
+			outline: var(--app-border-size) solid var(--window_outline_color);
+			border-radius: calc(var(--window_radius) - 2px);
+		}
+	}
+
+	.c38106a3f0c3ca76-bar {
+		right: var(--titlebar-button-spacing);
+	}
+
+	._5e434347c823b592-base {
+		padding: 0;
+	}
+}
+
+#app-mount {
+	// wtf discord
+	color: var(--window_fg_color);
+}
+
+.c38106a3f0c3ca76-bar {
+	background: none;
+	color: var(--headerbar_fg_color);
+	padding: 0;
+
+	position: fixed;
+	top: var(--spacing);
+	right: var(--spacing);
+	z-index: 101;
+	height: unset;
+
+	&.c38106a3f0c3ca76-systemBar {
+		display: none;
+	}
+
+	// Visible app banner
+	&:nth-last-child(3) {
+		margin-top: calc(var(--icon-button-size) + var(--spacing-2x));
+	}
+}
+
+// An invisible element that increases the parent's width, amazing
+.c38106a3f0c3ca76-leading {
+	& > div > span {
+		display: none;
+	}
+}
+
+.c38106a3f0c3ca76-title {
 	display: none;
+}
+
+.c38106a3f0c3ca76-trailing {
+	gap: var(--spacing);
+
+	[aria-label="Update Ready!"],
+	[href="https://support.discord.com"]
+	{
+		display: none;
+	}
+}
+
+.c38106a3f0c3ca76-winButton {
+	@include controls.titlebar-button;
+}
+
+.c38106a3f0c3ca76-winButtons {
+	color: inherit;
+	gap: var(--titlebar-button-spacing);
+
+	&::before {
+		display: none;
+	}
+}
+
+.c38106a3f0c3ca76-winButtonClose {
+	color: inherit;
+
+	display: var(--titlebar-close-button);
+}
+
+.c38106a3f0c3ca76-winButtonMinMax {
+	--icon: icon("window-maximize");
+	display: var(--titlebar-maximize-button);
+
+	&:first-child {
+		--icon: icon("window-minimize");
+		display: var(--titlebar-minimize-button);
+	}
 }

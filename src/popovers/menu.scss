@@ -1,0 +1,178 @@
+@use "controls";
+@use "popover";
+@use "typography";
+@use "util";
+
+.c1e9c47c23f12ca3-caret {
+	@include util.icon("right");
+
+	color: var(--window_fg_muted);
+	margin: 2px;
+
+	position: absolute;
+	right: var(--menu_padding);
+
+	path {
+		display: none;
+	}
+}
+
+.c1e9c47c23f12ca3-customItem {
+	padding: 0;
+}
+
+.c1e9c47c23f12ca3-groupLabel {
+	@include popover.title;
+
+	margin-inline-start: calc(var(--spacing) + popover.$icon-size - 2px);
+}
+
+.c1e9c47c23f12ca3-hintContainer {
+	color: var(--window_fg_muted);
+}
+
+.c1e9c47c23f12ca3-icon {
+	display: none;
+}
+
+.c1e9c47c23f12ca3-iconContainer {
+	margin-inline: -2px var(--spacing);
+
+	position: unset;
+	order: -1;
+
+	._09aca73e6d4b214b-checkbox {
+		background-color: transparent;
+		border: none;
+		margin: 2px;
+
+		&._09aca73e6d4b214b-checked {
+			@include util.icon("check-plain");
+		}
+
+		svg {
+			display: none;
+		}
+	}
+
+	._88a69141dd70013a-radioIndicator {
+		display: block;
+	}
+}
+
+.c1e9c47c23f12ca3-item {
+	@include popover.entry($hover: ".c1e9c47c23f12ca3-focused");
+
+	&:not(.c1e9c47c23f12ca3-colorDanger):active {
+		color: var(--popover_fg_color);
+	}
+
+	// sliders
+	&.c1e9c47c23f12ca3-hideInteraction {
+		height: unset;
+		min-height: 32px;
+	}
+
+	.c1e9c47c23f12ca3-labelContainer {
+		padding: 0;
+	}
+
+	._650391965b2d6ee2-slider {
+		top: 6px;
+	}
+
+	._650391965b2d6ee2-sliderContainer {
+		padding: 0;
+	}
+}
+
+.c1e9c47c23f12ca3-label {
+	color: inherit;
+	margin-inline-end: var(--spacing);
+
+	&:only-child {
+		margin-inline-start: calc(var(--spacing) + popover.$icon-size - 2px);
+	}
+}
+
+.c1e9c47c23f12ca3-menu {
+	@include popover.container;
+
+	padding: 0;
+}
+
+.c1e9c47c23f12ca3-scroller {
+	padding: var(--menu_margin);
+
+	overflow: auto;
+}
+
+.c1e9c47c23f12ca3-separator {
+	margin: var(--menu_margin) 0;
+}
+
+// Always useless
+.c1e9c47c23f12ca3-subtext {
+	display: none;
+}
+
+// Reactions
+.f563df886a7377be-wrapper {
+	gap: var(--spacing);
+	padding: 0;
+	margin-bottom: var(--menu_margin);
+
+	.f563df886a7377be-button {
+		@include controls.button;
+
+		width: 32px;
+	}
+}
+
+#set-status-submenu {
+	.ce832809562bf737-expiringStatusMenuItem {
+		.ce832809562bf737-description {
+			display: none;
+		}
+
+		.c1e9c47c23f12ca3-label {
+			margin: 0;
+		}
+
+		.c1e9c47c23f12ca3-separator {
+			display: none;
+		}
+
+		.ce832809562bf737-status {
+			color: inherit;
+		}
+
+		.ce832809562bf737-statusItem {
+			padding: 0;
+		}
+	}
+}
+
+#switch-accounts-submenu {
+	.d40c56f847687e8d-activeIcon {
+		@include util.icon("check-plain");
+
+		position: absolute;
+		right: var(--menu_padding);
+
+		* {
+			display: none;
+		}
+	}
+
+	.d40c56f847687e8d-userMenuText {
+		color: inherit;
+		font: inherit;
+	}
+
+	// Avatar
+	._44b0c28be7879b7b-wrapper {
+		position: absolute;
+		left: var(--menu_padding);
+	}
+}

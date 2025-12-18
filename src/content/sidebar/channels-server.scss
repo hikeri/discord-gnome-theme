@@ -1,0 +1,130 @@
+@use "typography";
+@use "util";
+
+div._5e434347c823b592-sidebar {
+	background: var(--bg-overlay-app-frame, var(--background-secondary-alt));
+	border-right: 1px solid var(--secondary_sidebar_border_color);
+	border-radius: 0;
+
+	&::after {
+		display: none;
+	}
+}
+
+._5e434347c823b592-sidebarList {
+	border: none;
+	border-radius: 0;
+
+	._2637a2609f343032-container {
+		margin: 0;
+	}
+}
+
+#channels {
+	margin: 0;
+}
+
+._2ea32c412048f708-wrapper {
+	color: var(--window_fg_color);
+
+	&._2ea32c412048f708-modeMuted {
+		color: var(--window_fg_muted);
+	}
+
+	&._2ea32c412048f708-typeThread {
+		--spine-width: 10px;
+		margin-left: calc(
+			var(--channels-spine-offset-left) + var(--spine-width) + var(--space-xs)
+		);
+	}
+
+	.c69b6db0641110f6-channelInfo {
+		margin: 0;
+	}
+
+	[data-text-variant="text-xs/semibold"] {
+		@extend %text-normal;
+	}
+}
+
+// Header
+._29444ba32c7fbeab-wrapperCommon {
+	--icon: icon("pan-down");
+
+	&._29444ba32c7fbeab-collapsed {
+		--icon: icon("pan-up");
+	}
+
+	&:not(:hover) {
+		color: var(--window_fg_muted);
+	}
+
+	._29444ba32c7fbeab-icon {
+		@include util.icon;
+
+		transform: none;
+
+		path {
+			display: none;
+		}
+	}
+
+	._29444ba32c7fbeab-mainContent {
+		gap: var(--space-xs);
+
+		flex-direction: row-reverse;
+		justify-content: start;
+	}
+
+	._29444ba32c7fbeab-name {
+		@extend %title-4;
+
+		color: inherit;
+	}
+}
+
+// "Browse channels", since it's fucking useless
+._2ea32c412048f708-basicChannelRowLink,
+._629e4c86564a4ee7-sectionDivider,
+._629e4c86564a4ee7-sectionDivider + [style="height: 12px;"] {
+	display: none;
+}
+
+._2ea32c412048f708-children {
+	// Use the context menu instead
+	.c69b6db0641110f6-iconItem {
+		display: none;
+	}
+}
+
+._2ea32c412048f708-icon {
+	display: none;
+}
+
+:where(._2ea32c412048f708-iconContainer) {
+	// Align with Discord
+	@include util.icon("lang-include");
+}
+
+._2ea32c412048f708-link {
+	color: inherit;
+	// Originally --space-xxs, but it's at a constant 4px. This is put here in
+	// order to not fuck with the virtualized list, since --space-xxs is edited.
+	padding-block: var(--space-4);
+}
+
+._2ea32c412048f708-name {
+	@extend %text-normal;
+}
+
+._5b40bdd67543ba35-spine {
+	color: var(--window_fg_color);
+}
+
+._2ea32c412048f708-unread {
+	margin: 0;
+
+	top: var(--space-4);
+	left: calc(var(--space-xs) * -1);
+	height: calc(100% - var(--space-4) * 2);
+}

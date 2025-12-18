@@ -1,68 +1,49 @@
-[role="tablist"] {
+@use "controls";
+@use "typography";
+@use "util";
+
+[role="tab"] {
+	@include controls.button;
+
+	background-color: transparent;
+	margin: 0;
+
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+
+	&[aria-selected="true"] {
+		background-color: color-mix(in srgb, currentColor 10%, transparent);
+
+		&:hover {
+			background-color: color-mix(in srgb, currentColor 13%, transparent);
+		}
+
+		&:active {
+			background-color: color-mix(in srgb, currentColor 19%, transparent);
+		}
+	}
+
+	&::after {
+		display: none;
+	}
+}
+
+[role="tablist"][aria-orientation="horizontal"] {
+	gap: 5px;
+	border: none;
+}
+
+// .navigation-sidebar > row
+[role="tablist"][aria-orientation="vertical"] {
+	padding: var(--menu_margin) 0;
+
 	[role="tab"] {
-		border: none;
-		border-radius: var(--button_radius);
+		@extend %text-normal;
 
-		transition: var(--backdrop_transition);
-	}
-
-	&:where([aria-orientation="horizontal"], .navList__08434) {
-		gap: 5px;
-
-		[role="tab"] {
-			background-color: color-mix(
-				in srgb,
-				currentColor var(--percentage),
-				transparent
-			);
-			color: var(--window_fg_color);
-			padding: 5px 10px;
-			margin: 0;
-
-			// user dialog
-			height: unset;
-
-			&:hover {
-				--percentage: var(--bg-hover-percentage);
-			}
-
-			&[aria-selected="true"] {
-				--percentage: var(--bg-selected-percentage);
-			}
-
-			&:active {
-				--percentage: var(--bg-active-percentage);
-			}
-		}
-	}
-
-	// .navigation-sidebar > row
-	&[aria-orientation="vertical"] {
-		padding: var(--menu_margin) 0;
-
-		[role="tab"] {
-			line-height: 44px;
-			min-height: 36px;
-			padding: 0 14px;
-			margin: 0 var(--menu_margin) 2px;
-
-			// Settings
-			.sidebar__23e6b & {
-				display: flex;
-				align-items: center;
-
-				&::before {
-					content: "";
-
-					width: var(--icon-size);
-					height: var(--icon-size);
-					display: inline-block;
-
-					mask: var(--icon);
-					background-color: currentColor;
-					margin-right: 12px;
-				}
-			}
-		}
+		line-height: 44px;
+		min-height: 36px;
+		padding: 0 14px;
+		margin: 0 var(--menu_margin) 2px;
 	}
 }

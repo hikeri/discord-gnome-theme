@@ -1,0 +1,156 @@
+@use "typography";
+
+.f75fb00fb7356cbe-chat {
+	border: none;
+	border-radius: 0;
+
+	&.f75fb00fb7356cbe-threadSidebarOpen {
+		--chat-header-right-padding: 0px;
+	}
+}
+
+#---new-messages-bar {
+	--separator-spacing: 0px;
+
+	margin-inline: var(--custom-message-margin-horizontal) 0;
+	margin-block: calc(var(--spacing) + var(--separator-spacing));
+
+	top: 0;
+
+	.group-spacing-4 & {
+		--separator-spacing: var(--space-sm);
+	}
+
+	.group-spacing-8 & {
+		--separator-spacing: var(--space-lg);
+	}
+
+	.group-spacing-16 & {
+		--separator-spacing: var(--space-xl);
+	}
+
+	.group-spacing-24 & {
+		--separator-spacing: var(--space-xxl);
+	}
+
+	&::before {
+		content: "NEW MESSAGES";
+
+		background-color: var(--background-primary);
+		color: var(--status-danger);
+		font-weight: bold;
+		padding: 0 var(--spacing);
+	}
+
+	& > span {
+		display: none;
+	}
+}
+
+._5126c0cd07f243a0-message {
+	.c19a557985eb7793-headerText {
+		margin-right: 0rem;
+	}
+
+	&.c19a557985eb7793-cozy {
+		.c19a557985eb7793-header {
+			line-height: var(--chat-markup-line-height);
+		}
+	}
+
+	&.c19a557985eb7793-compact {
+		--custom-message-margin-compact-indent: calc(
+			7.6rem + var(--custom-message-meta-space)
+		);
+		--custom-message-reply-indent: 1.375rem;
+
+		i {
+			opacity: 1;
+
+			position: unset;
+			display: unset;
+		}
+
+		.c19a557985eb7793-repliedMessage {
+			--custom-message-reply-indent: 0rem;
+			--timestamp-width: 11ch;
+
+			margin-left: 0;
+
+			& > span {
+				opacity: 1;
+			}
+		}
+
+		.c19a557985eb7793-replyBadge {
+			margin-bottom: 0.25em;
+
+			width: 1em;
+			height: 1em;
+		}
+
+		.c19a557985eb7793-avatar {
+			margin-left: 0;
+
+			top: 0.15em;
+		}
+
+		.c19a557985eb7793-timestamp {
+			font-family: var(--font-code);
+			font-size: var(--monospace-font-size);
+			line-height: var(--chat-markup-line-height);
+
+			width: 11ch;
+		}
+	}
+
+	._752971923a1e6683-markup {
+		font-weight: normal;
+
+		:is(h1, h2, h3) * {
+			@extend %title-1;
+		}
+	}
+}
+
+._36d072eab2b2e737-messagesWrapper {
+	--fade-out-gradient-size: calc(var(--spacing) * 4);
+	--gradient-bg: var(--background-base-lower);
+	--gradient-image: linear-gradient(to bottom, transparent, var(--gradient-bg));
+
+	flex-direction: column;
+
+	._36d072eab2b2e737-chatGradientBase {
+		transition: none;
+		background: var(--gradient-image);
+
+		height: var(--fade-out-gradient-size);
+	}
+
+	._36d072eab2b2e737-chatTypingGradientNotAtBottom {
+		background: var(--gradient-bg);
+
+		&::before {
+			content: "";
+
+			position: absolute;
+			bottom: 100%;
+			width: 100%;
+			height: 100%;
+
+			background: var(--gradient-image);
+		}
+	}
+
+	._36d072eab2b2e737-scrollerSpacer {
+		height: var(--fade-out-gradient-size);
+	}
+}
+
+.c19a557985eb7793-timestamp {
+	@extend %caption;
+}
+
+.c19a557985eb7793-username {
+	@extend %title-3;
+}

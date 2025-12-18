@@ -1,0 +1,182 @@
+@use "controls";
+@use "typography";
+@use "util";
+
+.e9e3ed8b8badfe05-contentHeader {
+	color: var(--headerbar_fg_color);
+	border: none;
+	box-shadow: var(--elevation-low);
+	padding: var(--titlebar-button-spacing);
+
+	height: var(--headerbar-height);
+	z-index: 1;
+
+	.e9e3ed8b8badfe05-contentHeaderLeft {
+		flex-grow: 1;
+		justify-content: center;
+	}
+
+	[data-text-variant] {
+		@extend %title-3;
+	}
+
+	button {
+		@include controls.titlebar-button;
+	}
+}
+
+.e4491282b6a5364a-modal {
+	.e4491282b6a5364a-modalContent {
+		// appears in small windows
+		border: none;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+}
+
+._6131ab3dbe0affed-panel {
+	padding: 22px 28px;
+	margin: auto;
+
+	max-width: var(--content-width);
+}
+
+._409aa1aeee28d5f7-sidebar {
+	background-color: var(--sidebar_bg_color);
+	border-inline-end: 1px solid var(--sidebar_border_color);
+	padding: 0;
+
+	._409aa1aeee28d5f7-fixedContent {
+		// for search bar
+		--window_bg_color: var(--sidebar_bg_color);
+
+		box-shadow: var(--elevation-low);
+		gap: var(--spacing);
+		padding: var(--spacing);
+
+		display: flex;
+		z-index: 1;
+
+		.caf372efc4d47562-item {
+			@include controls.icon-button-with-tooltip(
+				$name: "person",
+				$direction: "bottom",
+				$selector: "&:hover ._994649ede0ea4c23-textContainer"
+			);
+
+			margin: 0;
+
+			min-height: unset;
+			justify-content: center;
+
+			&.caf372efc4d47562-active {
+				@include controls.button-selected;
+			}
+
+			&:not(:hover) ._994649ede0ea4c23-textContainer {
+				display: none;
+			}
+		}
+
+		._994649ede0ea4c23-profileCustomizationTab {
+			gap: var(--spacing);
+
+			display: flex;
+			max-width: unset;
+
+			._994649ede0ea4c23-textContainer {
+				left: var(--spacing);
+			}
+
+			._44b0c28be7879b7b-wrapper,
+			._44b0c28be7879b7b-wrapper > svg > foreignObject {
+				--icon-size: 24px;
+
+				width: var(--icon-size);
+				height: var(--icon-size);
+			}
+
+			[data-text-variant] {
+				color: inherit;
+			}
+		}
+
+		._409aa1aeee28d5f7-section {
+			border: none;
+			padding: 0;
+		}
+
+		&::after {
+			display: none;
+		}
+
+		& > :nth-child(2) {
+			flex: 1 1 auto;
+		}
+	}
+
+	.caf372efc4d47562-itemContent {
+		gap: var(--spacing-2x);
+	}
+
+	._409aa1aeee28d5f7-nav {
+		gap: var(--menu_margin);
+	}
+
+	._409aa1aeee28d5f7-navScroller {
+		padding: var(--menu_margin) 0;
+		margin-inline: var(--menu_margin) 0;
+
+		.caf372efc4d47562-item {
+			// TODO(controls): maybe remove vertical tabs and make them a mixin
+			@include controls.button;
+
+			background-color: transparent;
+			line-height: 44px;
+			padding: 0 14px;
+
+			min-height: 36px;
+
+			&.caf372efc4d47562-active {
+				background-color: color-mix(in srgb, currentColor 10%, transparent);
+
+				&:hover {
+					background-color: color-mix(in srgb, currentColor 13%, transparent);
+				}
+
+				&:active {
+					background-color: color-mix(in srgb, currentColor 19%, transparent);
+				}
+			}
+
+			svg {
+				@include util.icon;
+
+				display: inline-block;
+
+				* {
+					display: none;
+				}
+			}
+		}
+
+		// footer
+		& > div {
+			margin: var(--spacing) auto;
+		}
+	}
+
+	._409aa1aeee28d5f7-section {
+		// TODO: dedi file
+		$border_color: color-mix(in srgb, currentColor 25%, transparent);
+		border-bottom: 1px solid #{$border_color};
+		gap: 2px;
+		padding-bottom: var(--menu_margin);
+	}
+
+	._409aa1aeee28d5f7-sectionLabel {
+		display: none;
+	}
+}

@@ -1,35 +1,56 @@
-# discord-gnome-theme
+# Discord GNOME Theme
 
 A GNOME theme for Discord, following the Adwaita style & GNOME Human Interface Guidelines (with whatever the Discord CSS lets me do).
 
 ## Requirements
 
-1. Settings > Language > Choose "English (US)"
-2. Settings > Plugins > Enable "ThemeAttributes"
-3. Settings > Vesktop Settings > Enable "Discord Titlebar"
+1. Vesktop
 
-### Optional additions
+   Recommended for enabling the Discord's custom titlebar. Enable with Settings > Vesktop Settings > "Discord Titlebar".
 
-1. Colorful placeholder icons: https://github.com/NYRI4/Discolored
-2. Remove Nitro references: https://github.com/CroissantDuNord/discord-adblock
+   You can still use something else like BetterDiscord - the theme will work but without the usual GNOME headerbar and with BetterDiscord content unthemed.
 
-## TODO
+2. Install [Discord Adblock](https://codeberg.org/ridge/Discord-AdBlock)
 
-- Rewrite
-- Scrollbars
-- Fix message form
-- Old messages banner -> toast
-- Update dialogs to newer libadwaita
+   Removes Nitro elements, as they will look out of place.
+
+3. Settings > Language > Choose "English (US)"
+
+   This allows for custom icons due to how they are identified in Discord. You may [localize](./src/global/icons.scss) the theme, but read the localization note.
+
+4. Settings > Plugins > Enable "ThemeAttributes"
+
+   This allows for icons in the settings dialog.
+
+## Theming philosophy
+
+The theme may not fully confine to the HIG because of Discord's either CSS or design limitations or my own choices.
+
+These are not supported:
+
+- Discord experiments
+
+  I do not work for Discord, so I have no way of knowing if these experiments are getting changed, deprecated, etc., i.e. maintenance burden — I maintain several other projects
+
+- Nitro
+
+  Exceptions — anything accessible with the FakeNitro plugin.
+
+You \*can\* open an issue about any of these, but it's only getting fixed if it's an easy fix, i.e. missing icon.
 
 ## Installation
 
-Copy the following into the text box located in Settings > Themes > "Online Themes" tab:
+### No configuration
+
+Copy the following into the text box located in Settings > Themes > Online Themes:
 
 ```
 https://raw.githubusercontent.com/ricewind012/discord-gnome-theme/master/gnome.theme.css
 ```
 
-or put [gnome.theme.css](./gnome.theme.css) in ~/.config/vesktop/themes for additional configuration.
+### Including configuration
+
+Put [gnome.theme.css](./gnome.theme.css) in ~/.config/vesktop/themes. It's still updated automatically.
 
 ## Preview
 

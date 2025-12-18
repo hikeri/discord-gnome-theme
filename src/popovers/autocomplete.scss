@@ -1,0 +1,75 @@
+@use "popover";
+
+._13533e3c5791980f-autocomplete {
+	@include popover.container;
+
+	padding: 0;
+
+	inset-inline: 0;
+}
+
+._13533e3c5791980f-contentTitle {
+	@include popover.title;
+}
+
+._13533e3c5791980f-divider {
+	padding: var(--menu_margin) 0;
+
+	&::after {
+		background-color: popover.$border_color;
+	}
+}
+
+// .affa7e120767dd82-scroller is for a virtual list seen in commands list
+._6b0e07cbaf13ec4e-scroller:not(.affa7e120767dd82-scroller) {
+	padding: var(--menu_padding);
+
+	._13533e3c5791980f-autocompleteRow {
+		padding: 0;
+
+		&[aria-selected="true"] > ._13533e3c5791980f-base {
+			background-color: color-mix(in srgb, currentColor 15%, transparent);
+		}
+
+		& > ._13533e3c5791980f-base {
+			@include popover.entry;
+
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	._13533e3c5791980f-autocompleteRowContent {
+		gap: var(--spacing);
+
+		flex-grow: 1;
+
+		& > * {
+			margin: 0;
+
+			text-align: start;
+		}
+	}
+
+	._13533e3c5791980f-autocompleteRowContentPrimary {
+		width: 50%;
+
+		&:first-child {
+			--margin: calc(24px + var(--spacing));
+
+			margin-left: var(--margin);
+
+			width: calc(50% - var(--margin));
+		}
+	}
+
+	._13533e3c5791980f-autocompleteRowContentSecondary {
+		font: inherit;
+
+		width: 50%;
+	}
+
+	._13533e3c5791980f-base {
+		padding: 0;
+	}
+}

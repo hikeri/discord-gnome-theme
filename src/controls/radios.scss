@@ -1,35 +1,17 @@
-@use "../mixins";
+@use "controls";
 
-[role="radio"] {
-	@extend %card-with-actual-border-radiuses;
+// Settings
+@include controls.radio(
+	"._88a69141dd70013a-container",
+	"._88a69141dd70013a-item",
+	"._88a69141dd70013a-radioIndicatorGroup",
+	"._88a69141dd70013a-radioIndicator"
+);
 
-	box-shadow: none;
-	padding: 16px;
-	margin: 0;
-
-	& > div {
-		border: none;
-		gap: 16px;
-		padding: 0;
-
-		& > :first-child {
-			border-radius: 50%;
-
-			width: 22px;
-			height: 22px;
-		}
-	}
-
-	svg {
-		display: none;
-	}
-
-	&[aria-checked="true"] > div > :first-child {
-		background-color: #fff;
-		border: 7px solid var(--accent_bg_color);
-	}
-
-	&[aria-checked="false"] > div > :first-child {
-		border: 2px solid color-mix(in srgb, currentColor 25%, transparent);
-	}
-}
+// Poll
+@include controls.radio(
+	"._4c5209741d147f1b-answersContainer",
+	"._4c5209741d147f1b-answer",
+	"._4c5209741d147f1b-answerSelectionIcon",
+	"._4c5209741d147f1b-answerSelectionIcon > *"
+);

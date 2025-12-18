@@ -1,0 +1,262 @@
+@use "controls";
+@use "typography";
+@use "util";
+
+@mixin -role-button($icon) {
+	@include controls.icon-button($icon, var(--role-height));
+
+	border: none;
+	border-radius: 999px;
+}
+
+._5be3ef42f92174b2-body {
+	gap: var(--dialog-spacing-x05);
+	padding: 0 var(--dialog-spacing);
+}
+
+// Activity
+._39ec2e3dfb4fd2f2-card {
+	@include controls.card($activatable: true);
+
+	border: none;
+
+	._39ec2e3dfb4fd2f2-actions {
+		gap: var(--spacing);
+		margin: 0;
+	}
+
+	._39ec2e3dfb4fd2f2-header {
+		display: none;
+	}
+}
+
+._5be3ef42f92174b2-footer {
+	padding: var(--dialog-spacing);
+	padding-top: 0;
+}
+
+.c0bea05627c5dc35-inner {
+	gap: var(--dialog-spacing-x05);
+	padding: 0;
+
+	// revert %caption
+	._752971923a1e6683-markup [data-text-variant] {
+		--window_fg_muted: currentColor;
+		@extend %text-normal;
+	}
+}
+
+// #region User panel
+.ce832809562bf737-expiringStatusMenuItem {
+	.c1e9c47c23f12ca3-iconContainer {
+		display: none;
+	}
+}
+
+.ce832809562bf737-menuItem {
+	--icon: icon("right");
+
+	.ce832809562bf737-menuOverlay:first-child & {
+		&:first-child {
+			--icon: icon("edit");
+		}
+
+		&:nth-child(2) > .ce832809562bf737-menuItemInner {
+			// awful
+			$colors: (
+				online: "var(--success-color)",
+				idle: "var(--warning-color)",
+				dnd: "var(--destructive-color)",
+				offline: "var(--window_fg_muted)",
+			);
+
+			@each $status, $color in $colors {
+				&:has([mask="url(#svg-mask-status-#{$status})"]) {
+					color: #{$color};
+				}
+
+				@at-root #set-status-submenu-#{$status} {
+					color: #{$color};
+				}
+			}
+		}
+	}
+
+	.ce832809562bf737-menuOverlay:nth-child(2) &:nth-child(2) {
+		--icon: icon("edit-copy");
+	}
+
+	&::after {
+		display: none;
+	}
+}
+
+.ce832809562bf737-menuItemContent {
+	flex-direction: row-reverse;
+}
+
+.ce832809562bf737-menuItemIcon {
+	@include controls.icon-button;
+
+	pointer-events: all;
+}
+
+.ce832809562bf737-menuItemInner {
+	@include controls.card($activatable: true);
+
+	border-bottom: 1px solid var(--card_shade_color);
+	border-radius: 0;
+	box-shadow: none;
+
+	box-sizing: border-box;
+
+	pointer-events: none;
+
+	&:is(:hover, :active) {
+		background-color: var(--card_bg_color);
+	}
+}
+
+.ce832809562bf737-menuItemLabelText {
+	@extend %title-3;
+
+	color: inherit;
+}
+
+.ce832809562bf737-menuOverlay {
+	border: none;
+	padding: 0;
+}
+
+.ce832809562bf737-menus {
+	@include controls.cards-container;
+
+	gap: 0;
+
+	overflow: hidden;
+}
+
+.ce832809562bf737-submenuIconWrapper {
+	display: none;
+}
+// #endregion
+
+// [role="dialog"] child, so vars go here
+.c0bea05627c5dc35-outer {
+	--dialog-spacing: var(--space-xl);
+	--role-button-size: 24px;
+	--role-spacing: 2px;
+	--role-height: calc(var(--role-button-size) + var(--role-spacing) * 2);
+
+	border-radius: var(--window_radius);
+}
+
+.dfa8b6b94cddb191-role {
+	background: transparent;
+	border: none;
+	border-radius: 999px;
+	padding: 0;
+	padding-left: var(--spacing-2x);
+
+	overflow: hidden;
+	height: var(--role-height);
+
+	[data-text-variant] {
+		@extend %text-normal;
+
+		color: inherit;
+	}
+
+	& > :first-child {
+		order: 1;
+	}
+}
+
+.dfa8b6b94cddb191-roleCircle {
+	--icon: icon("window-close");
+
+	border-radius: 999px;
+	margin: 0;
+	margin-left: var(--spacing-2x);
+
+	position: relative;
+	width: var(--role-button-size);
+	height: var(--role-button-size);
+
+	.dfa8b6b94cddb191-roleRemoveButtonCanRemove &::before {
+		content: "";
+
+		position: absolute;
+		inset: 0;
+
+		@include util.icon;
+	}
+
+	&::after {
+		content: "";
+
+		position: relative;
+		display: block;
+		right: 200%;
+		min-width: 500px;
+		height: 100px;
+
+		background-color: inherit;
+		opacity: 25%;
+
+		pointer-events: none;
+	}
+}
+
+.dfa8b6b94cddb191-roleName {
+	margin: 0;
+
+	z-index: 1;
+}
+
+.dfa8b6b94cddb191-roleRemoveIcon {
+	display: none;
+}
+
+// Roles container
+.fccfdf3cfff21921-root {
+	gap: var(--role-spacing);
+
+	// Add role button
+	._7d7f78b99d0a7581-button {
+		@include -role-button("plus");
+	}
+
+	.fccfdf3cfff21921-collapseButton {
+		@include -role-button("up");
+	}
+
+	.fccfdf3cfff21921-expandButton {
+		@include -role-button("down");
+	}
+}
+
+._63ed30c16c7151f2-userTagUsername {
+	@extend %caption;
+
+	// Align with src/global/text.scss
+	line-height: 1.25;
+}
+
+.f5f93a5c4078d63c-viewFullBio {
+	@extend %link;
+
+	// partially revert %caption
+	--window_fg_muted: currentColor;
+
+	margin-top: var(--spacing);
+}
+
+// Banner buttons
+.da589062f0c96515-wrapper {
+	gap: var(--spacing);
+
+	.fb7f9476ada049c8-bannerButton {
+		@include controls.icon-button-circular;
+	}
+}

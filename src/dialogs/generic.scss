@@ -1,0 +1,65 @@
+@use "controls";
+@use "dialog";
+
+[role="dialog"] {
+	--dialog-spacing-x05: calc(var(--dialog-spacing) / 2);
+	--dialog-spacing: 24px;
+}
+
+._783321f3468cf9e8-backdrop {
+	background-color: var(--backdrop);
+}
+
+._49fc18ba07c5025f-close {
+	@include controls.titlebar-button;
+
+	opacity: 1;
+	color: inherit;
+
+	position: absolute;
+	top: var(--titlebar-button-spacing);
+	right: var(--titlebar-button-spacing);
+}
+
+// Do NOT use gap on root, since its parts are not always direct descendants of
+// the dialog container.
+._49fc18ba07c5025f-root {
+	@include dialog.container;
+
+	&:has(._49fc18ba07c5025f-close) {
+		background-color: var(--window_bg_color);
+	}
+
+	._49fc18ba07c5025f-header {
+		padding: 0;
+		padding-top: var(--dialog-spacing);
+
+		position: unset;
+		justify-content: center;
+	}
+
+	:where(._49fc18ba07c5025f-content) {
+		text-align: center;
+		padding: var(--dialog-spacing);
+		padding-top: var(--dialog-spacing-x05);
+	}
+
+	._49fc18ba07c5025f-footer {
+		box-shadow: none;
+		padding: 0;
+		margin: var(--dialog-spacing);
+		margin-top: 0;
+		gap: var(--spacing-2x);
+
+		button {
+			// Hardcoded (maybe):
+			// https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/src/stylesheet/widgets/_message-dialog.scss#L123
+			border-radius: 12px;
+			// Seen in "Change password" dialog
+			margin: 0;
+
+			flex-grow: 1;
+			height: 44px;
+		}
+	}
+}

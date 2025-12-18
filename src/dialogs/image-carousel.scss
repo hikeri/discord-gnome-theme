@@ -1,0 +1,57 @@
+@use "controls";
+
+.cc1819cb49c2d109-actionButtons {
+	background-color: transparent;
+	border: none;
+	gap: var(--spacing);
+	padding: 0;
+}
+
+.aec7abc73c126bc0-button {
+	@include controls.icon-button;
+
+	color: var(--window_fg_color);
+
+	&._6088c3df6d10c76d-closeButton {
+		--icon: icon("window-close");
+	}
+
+	&.b2eddf192f54b058-navNext {
+		--icon: icon("go-next");
+	}
+
+	&.b2eddf192f54b058-navPrev {
+		--icon: icon("go-previous");
+	}
+}
+
+.d3a6f0de39ff36e9-carouselModal {
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+	margin: var(--space-xxl);
+}
+
+.d75751de2a8ac456-gallery {
+	gap: var(--spacing-05x);
+}
+
+.d75751de2a8ac456-galleryItem {
+	border-radius: 0;
+
+	&.d75751de2a8ac456-first {
+		border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+	}
+
+	&.d75751de2a8ac456-last {
+		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+	}
+}
+
+.e035781d3e5b07da-mediaArea {
+	box-shadow: var(--elevation-high);
+}
+
+._6088c3df6d10c76d-topBar {
+	gap: var(--spacing);
+}

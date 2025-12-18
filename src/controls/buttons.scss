@@ -1,64 +1,84 @@
-@use "../mixins";
+@use "controls";
 
-[class*="button_"][class*="size" i]:not(.size32__06eda) {
-	@extend %button;
+$destructive_button_color: color-mix(in srgb, currentColor 15%, transparent);
+$destructive_button_hover_color: color-mix(
+	in srgb,
+	currentColor 20%,
+	transparent
+);
+$destructive_button_active_color: color-mix(
+	in srgb,
+	currentColor 35%,
+	transparent
+);
 
-	&[class*="disabled_"] {
+@mixin -destructive {
+	background-color: $destructive_button_color;
+	color: var(--destructive-color);
+
+	&:hover {
+		background-color: $destructive_button_hover_color;
+	}
+
+	&:active {
+		background-color: $destructive_button_active_color;
+	}
+}
+
+._201d5e8a3c09670a-button {
+	@include controls.button;
+
+	&:disabled {
 		opacity: var(--dim-level-opacity);
 	}
 
-	&.colorPrimary__201d5 {
-		--banner-bg: var(--accent_color);
-		color: var(--accent_fg_color);
+	&:where(._201d5e8a3c09670a-colorBrand) {
+		@include controls.button-accent;
 	}
 
-	&.colorRed__201d5 {
-		--banner-bg: var(--destructive_bg_color);
-		color: var(--destructive_fg_color);
+	&:where(._201d5e8a3c09670a-colorRed) {
+		@include -destructive;
 	}
 
-	&.colorGreen__201d5 {
-		--banner-bg: var(--success_bg_color);
-		color: var(--success_fg_color);
+	&:where(._201d5e8a3c09670a-colorGreen) {
+		color: var(--success-color);
 	}
-}
 
-.mentionButton__841c8,
-.barButtonAlt__0f481 {
-	@extend %button;
-}
+	&:where(._201d5e8a3c09670a-lookBlank) {
+		background-color: transparent;
+		padding: 0;
+	}
 
-[role="button"][aria-haspopup] {
-	@extend %button;
-
-	min-height: 34px;
-
-	.videoControls_cf09d8 & {
-		--banner-bg: transparent;
+	& > div {
+		--button--underline-color: transparent;
 	}
 }
 
-.jumpButton_ed0c8c {
-	@extend %button;
+// new
+.a22cb0c66246f5d3-button {
+	@include controls.button;
 
-	height: unset;
+	max-height: unset;
+
+	&:where(.a22cb0c66246f5d3-primary) {
+		@include controls.button-accent;
+	}
+
+	&:where(.a22cb0c66246f5d3-critical-primary),
+	&:where(.a22cb0c66246f5d3-critical-secondary) {
+		@include -destructive;
+	}
+
+	&:where(.a22cb0c66246f5d3-icon-only) {
+		@include controls.icon-button;
+	}
 }
 
-.searchResultsWrap_a9e706 .button__02a39 {
-	@extend %button;
+.a22cb0c66246f5d3-buttonChildrenWrapper {
+	all: unset;
 
-	font-size: 15px;
-	font-weight: bold;
-
-	height: unset;
-}
-
-[aria-roledescription="Open Thread Button"] {
-	@extend %button;
-
-	height: unset;
-
-	.cta__9271d {
-		text-decoration: none;
+	// undo %caption
+	[data-text-variant] {
+		all: inherit;
 	}
 }

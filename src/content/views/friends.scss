@@ -1,0 +1,78 @@
+@use "controls";
+@use "typography";
+
+._133bf5eea8e33a34-container {
+	border: none;
+}
+
+._133bf5eea8e33a34-nowPlayingColumn {
+	._7d20cf18f8a2784c-container {
+		background: var(--bg-overlay-2, var(--background-secondary));
+	}
+}
+
+._133bf5eea8e33a34-peopleColumn {
+	gap: 16px;
+	padding: 16px;
+
+	& > * {
+		margin: 0;
+	}
+
+	h2 {
+		@extend %title-3;
+
+		margin: 0;
+	}
+}
+
+._5ec2fb8b5de26b21-peopleList {
+	@include controls.cards-container;
+
+	overflow: auto;
+
+	& > div > div {
+		@include controls.card-in-container(
+			$activatable: true,
+			$first-selector: ":first-child",
+			$last-selector: ":last-child"
+		);
+
+		// Title
+		min-height: unset;
+
+		&._5ec2fb8b5de26b21-sectionTitle {
+			&:hover,
+			&:active {
+				background-color: var(--card_bg_color);
+			}
+		}
+	}
+
+	// WTF is this shit
+	& > [aria-hidden="true"] {
+		display: none;
+	}
+}
+
+.cc61794aab086a2e-peopleListItem {
+	border-top: none;
+	margin: 0;
+
+	.f8fa068db52f043f-actionButton {
+		@include controls.icon-button;
+	}
+
+	._0a06ed6ea040aa1b-userInfo {
+		align-items: center;
+	}
+
+	._0a06ed6ea040aa1b-username {
+		@extend %title-3;
+	}
+
+	.sub_0a06ed6ea040aa1b-text,
+	._19b6da809e654e70-text {
+		@extend %caption;
+	}
+}

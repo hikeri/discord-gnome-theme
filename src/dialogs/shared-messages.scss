@@ -1,19 +1,16 @@
-@use "../mixins";
+@use "controls";
+@use "dialog";
+@use "typography";
 
-.header__45690 {
-	border: none;
-
-	display: flex;
-	flex-direction: row-reverse;
-	align-items: center;
-	justify-content: space-between;
+.e8b59c4b335dd2fc-header {
+	@include dialog.header;
 }
 
-.messagesPopout__45690 {
+.e8b59c4b335dd2fc-messagesPopout {
 	padding: 0;
 
 	[role="list"] {
-		@extend %cards-container;
+		@include controls.cards-container;
 
 		margin: 22px 28px;
 
@@ -31,19 +28,42 @@
 		}
 	}
 
-	.messageContainer__95796 {
+	._957962c2bd49881b-messageContainer {
 		background-color: transparent;
+		border: none;
 		padding: 8px 0;
 		margin: 0;
 	}
 
-	.jumpButton_ed0c8c {
+	.ed0c8cb44ff95773-jumpButton {
+		@include controls.button;
+
+		box-shadow: none;
+
 		top: 8px;
 		right: 8px;
+		height: unset;
 
 		& > div {
 			color: inherit;
 			font-size: inherit;
 		}
+	}
+}
+
+.e8b59c4b335dd2fc-messagesPopoutWrap {
+	@include dialog.container;
+}
+
+.e8b59c4b335dd2fc-titleContainer {
+	justify-content: center;
+	height: var(--headerbar-height);
+
+	[data-text-variant="text-lg/semibold"] {
+		@extend %title-3;
+	}
+
+	svg {
+		display: none;
 	}
 }

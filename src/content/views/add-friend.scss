@@ -1,0 +1,31 @@
+#add_friend-tab {
+	flex-direction: column-reverse;
+	justify-content: center;
+
+	& > header {
+		border: none;
+
+		& > h2,
+		.ddd1814f7cd3e6fd-description {
+			display: none;
+		}
+	}
+
+	& > div {
+		flex-grow: 0;
+	}
+}
+
+._72ba79a5dfa2ce86-addFriendInputWrapper {
+	background-color: transparent;
+	border: none;
+	margin: 0;
+}
+
+._72ba79a5dfa2ce86-addFriendInput > input {
+	letter-spacing: 0;
+}
+
+._72ba79a5dfa2ce86-addFriendWumpusWrapper img {
+	bottom: calc(var(--space-4) * -1);
+}

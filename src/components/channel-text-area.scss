@@ -1,0 +1,56 @@
+@use "controls";
+
+._740174f3d6a2c8fe-button {
+	@include controls.icon-button;
+}
+
+._740174f3d6a2c8fe-buttonContainer > :where(button, div) {
+	margin-left: var(--spacing);
+}
+
+._740174f3d6a2c8fe-buttons {
+	gap: 0;
+
+	// align to start for longer text
+	& > div {
+		height: 100%;
+		align-items: start;
+	}
+}
+
+._740174f3d6a2c8fe-channelTextArea {
+	--custom-channel-textarea-text-area-height: 34px;
+	background: transparent;
+	border: none;
+
+	._1b31f471f0bb10ab-editor {
+		@include controls.text-field;
+
+		&[contenteditable="false"] {
+			opacity: var(--dim-level-opacity);
+		}
+	}
+
+	._1b31f471f0bb10ab-placeholder {
+		line-height: 1.25;
+		padding: 0;
+		margin: 0;
+
+		inset: 8px 9px;
+		z-index: 1;
+	}
+}
+
+._740174f3d6a2c8fe-inner {
+	padding: 0;
+}
+
+._740174f3d6a2c8fe-textArea:not(._740174f3d6a2c8fe-textAreaSlate) {
+	@include controls.text-field;
+
+	line-height: 1.25;
+}
+
+._740174f3d6a2c8fe-themedBackground {
+	background: transparent;
+}

@@ -1,0 +1,97 @@
+@use "popover";
+@use "typography";
+@use "util";
+
+.ea54707ab71d558e-caughtUpContainer {
+	display: none;
+}
+
+.fc71d3ecf7bbad57-container {
+	@include popover.container;
+
+	padding: 0;
+}
+
+.cb862ac868ac5c44-messageClickableContainer {
+	@include popover.entry(
+		$hover: ":is(.cb862ac868ac5c44-actionMenuOpen, :focus-within, :hover)"
+	);
+
+	padding: var(--spacing);
+
+	height: unset;
+
+	.cb862ac868ac5c44-channelName {
+		display: none;
+	}
+
+	.cb862ac868ac5c44-message {
+		color: var(--window_fg_color);
+		font: inherit;
+	}
+
+	.cb862ac868ac5c44-messageContainer {
+		padding: 0;
+		margin: 0;
+
+		& > [style*="margin-top: 4px"] {
+			margin: 0;
+		}
+	}
+
+	.cb862ac868ac5c44-timestamp {
+		line-height: 1.2;
+
+		height: unset;
+	}
+
+	.cb862ac868ac5c44-unreadDot {
+		display: none;
+	}
+
+	.cb862ac868ac5c44-username {
+		@extend %title-3;
+
+		line-height: 1.2;
+	}
+}
+
+._0aee3b5863670ec7-messagesGroupHeaderWrap {
+	--icon: icon("pan-down");
+
+	padding: var(--spacing);
+	margin-top: var(--spacing);
+
+	height: unset;
+
+	&._0aee3b5863670ec7-collapsed {
+		--icon: icon("pan-up");
+	}
+
+	&:not(:hover) {
+		color: var(--window_fg_muted);
+	}
+
+	& > .dbd2630aec71879b-stack {
+		gap: var(--space-xs);
+
+		flex-direction: row-reverse;
+		justify-content: start;
+	}
+
+	._0aee3b5863670ec7-chevron {
+		@include util.icon;
+
+		transform: none;
+
+		path {
+			display: none;
+		}
+	}
+
+	._0aee3b5863670ec7-messagesGroupHeader {
+		@extend %title-4;
+
+		color: inherit;
+	}
+}

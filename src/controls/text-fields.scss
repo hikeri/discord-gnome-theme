@@ -1,42 +1,38 @@
-@use "../mixins";
+@use "controls";
+@use "util";
 
-[role="textbox"] {
-	@extend %text-field-focus;
-}
+._0f0849b61557225e-container {
+	@include controls.text-field;
 
-.textarea__9daae, // User profile note
-.quickswitcher_ac6cb0 > input,
-.channelName__754bd > div > input {
-	@extend %text-field;
-}
+	gap: 0;
+	// Move padding to the <input> element because the wrapper can't get focused
+	padding: 0;
 
-[class*="searchBar_"],
-[class*="searchBox_"] {
-	&[class*="container_"] {
-		@extend %text-field;
+	flex-wrap: nowrap;
+	min-height: unset;
 
-		input {
-			font-size: 15px;
-			line-height: inherit;
-			padding: 0;
-			margin: 0;
-
-			height: inherit;
-		}
-	}
-
-	& > [class*="inner_"] {
-		padding: 0;
-
-		flex-direction: row-reverse;
+	input {
+		padding: 8px 9px;
 	}
 }
 
-[class*="inputWrapper_"] {
-	border: none;
+// legacy
+._0ed4fc708cdbac0d-input {
+	@include controls.text-field;
 
-	input,
-	textarea {
-		@extend %text-field;
+	// + 1px
+	line-height: 1.25;
+}
+
+._0f0849b61557225e-icon {
+	&:not(._0f0849b61557225e-button) {
+		@include util.icon("loupe-large");
+
+		border: none;
+		margin-inline-start: 9px;
+	}
+
+	&._0f0849b61557225e-button {
+		@include controls.icon-button("window-close");
 	}
 }

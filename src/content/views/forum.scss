@@ -1,0 +1,51 @@
+@use "controls";
+
+.f369dba7416c67f0-headerRow {
+	background-color: transparent;
+	box-shadow: none;
+	padding: 0;
+	margin-bottom: var(--spacing-2x);
+
+	&:hover {
+		background-color: transparent;
+	}
+}
+
+.f369dba7416c67f0-list > ._99f8cc7ad4790ce9-content {
+	--custom-forum-post-form-horizontal-padding: 0px;
+	padding: 0;
+}
+
+.f369dba7416c67f0-card {
+	@include controls.card-in-container(
+		$activatable: true,
+		$first-selector: ":first-of-type",
+		$last-selector: ":last-of-type"
+	);
+
+	// for now
+	box-shadow: var(--elevation-medium);
+
+	.f369dba7416c67f0-mainCard {
+		background-color: transparent;
+		border: none;
+		padding: 0;
+	}
+}
+
+.f369dba7416c67f0-header {
+	background: none;
+	border: none;
+}
+
+.f369dba7416c67f0-tagsContainer {
+	padding: 0;
+}
+
+.d9be463a3c35b91e-titleContainer {
+	gap: var(--spacing-2x);
+}
+
+.d9be463a3c35b91e-prefixElement {
+	display: none;
+}

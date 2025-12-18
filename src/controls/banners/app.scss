@@ -1,0 +1,83 @@
+@use "controls";
+@use "util";
+
+%-banner {
+	@include controls.banner;
+	@include util.inactive-dim;
+
+	border: none;
+	border-radius: 0;
+}
+
+%-banner-button {
+	@include controls.button;
+}
+
+// #region Server preview
+.c5cd6ac154c385c9-back {
+	margin: 0;
+
+	position: unset;
+}
+
+.c5cd6ac154c385c9-button {
+	@extend %-banner-button;
+}
+
+// revert %caption
+.c5cd6ac154c385c9-header {
+	color: inherit;
+	margin: auto;
+
+	order: -1;
+}
+
+.c5cd6ac154c385c9-notice {
+	@extend %-banner;
+
+	height: unset;
+	justify-content: unset;
+}
+// #endregion
+
+// #region Previous VC
+._6e2b9359c6f84cfd-button {
+	@extend %-banner-button;
+
+	margin-left: auto;
+
+	top: 0;
+}
+
+._6e2b9359c6f84cfd-closeButton {
+	@extend %-banner-button;
+
+	// Probably the only way to center the text
+	margin-right: auto;
+
+	position: unset;
+	width: unset;
+	height: unset;
+
+	&::before {
+		content: attr(aria-label);
+	}
+}
+
+._6e2b9359c6f84cfd-closeIcon {
+	display: none;
+}
+
+._6e2b9359c6f84cfd-notice {
+	--custom-notice-text: var(--window_fg_color);
+
+	@extend %-banner;
+
+	text-align: center;
+	line-height: unset;
+	gap: var(--spacing);
+
+	display: flex;
+	align-items: center;
+}
+// #endregion

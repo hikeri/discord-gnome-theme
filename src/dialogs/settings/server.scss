@@ -1,0 +1,15 @@
+@use "controls";
+
+// Server settings traits
+._4cbea77cc60607a7-grid {
+	gap: var(--spacing) var(--spacing-2x);
+
+	._04eede68d145ae81-emojiButton {
+		@include controls.icon-button("emoji-people");
+	}
+}
+
+// Access -> "How can people join your server?"
+._959cbfbb20fb39e8-joinOptionTab {
+	all: unset;
+}

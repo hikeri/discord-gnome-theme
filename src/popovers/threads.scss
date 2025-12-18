@@ -1,0 +1,17 @@
+@use "dialog";
+
+.d9c8822889d1d4a1-closeIcon,
+.d9c8822889d1d4a1-divider,
+.d9c8822889d1d4a1-spacer,
+.d9c8822889d1d4a1-threadIcon,
+.d9c8822889d1d4a1-title {
+	display: none;
+}
+
+.d9c8822889d1d4a1-createButton {
+	margin: 0;
+}
+
+.d9c8822889d1d4a1-header {
+	@include dialog.header;
+}

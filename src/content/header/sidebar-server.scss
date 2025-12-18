@@ -1,0 +1,82 @@
+@use "controls";
+@use "typography";
+
+.f37cb1984c371ee5-container {
+	&.f37cb1984c371ee5-bannerVisible {
+		.f37cb1984c371ee5-header {
+			background-image: linear-gradient(var(--backdrop), transparent);
+		}
+
+		.f37cb1984c371ee5-headerContent {
+			filter: var(--text-shadow);
+		}
+	}
+
+	&:not(.f37cb1984c371ee5-bannerVisible) {
+		.f37cb1984c371ee5-header {
+			box-shadow: var(--elevation-low);
+		}
+
+		.f37cb1984c371ee5-headerContent {
+			color: var(--headerbar_fg_color);
+		}
+	}
+}
+
+.f37cb1984c371ee5-guildDropdown {
+	// Move text to .headerChildren
+	--text: attr(aria-label);
+
+	all: unset;
+
+	display: flex;
+	width: 100%;
+}
+
+.f37cb1984c371ee5-header {
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	padding: var(--spacing);
+
+	app-region: drag;
+}
+
+._85d1663d6a9fc7f6-guildIconV2Container,
+.f37cb1984c371ee5-headerEllipseBackdrop,
+.f37cb1984c371ee5-headerEllipseForeground,
+.f37cb1984c371ee5-headerGlass,
+.f37cb1984c371ee5-inviteButton {
+	display: none;
+}
+
+.f37cb1984c371ee5-headerChildren {
+	@include controls.icon-button-with-tooltip(
+		$name: "menu",
+		$direction: "bottom",
+		$selector: "&:hover::after",
+		$overflow-workaround-direction: "right"
+	);
+
+	flex-shrink: 0;
+
+	app-region: no-drag;
+	pointer-events: all;
+
+	&:hover::after {
+		content: var(--text);
+	}
+}
+
+.f37cb1984c371ee5-headerContent {
+	gap: 0;
+}
+
+.f37cb1984c371ee5-name {
+	@extend %title-2;
+
+	color: inherit;
+	line-height: 1;
+	padding-inline: var(--spacing);
+	margin: auto;
+}
